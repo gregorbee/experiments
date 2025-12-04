@@ -4262,7 +4262,7 @@ builtinScriptlets.push({
 });
 function trustedFindId() {
   window.alert('TEST');
-  return document.getElementById('project_id').value;
+  // return document.getElementById('project_id').value;
 }
 
 // window.alert('TEST');
