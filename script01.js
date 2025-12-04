@@ -4255,10 +4255,12 @@ function trustedPruneOutboundObject(
 /******************************************************************************/
 
 builtinScriptlets.push({
-    name: 'find-project-id.fn',
-    fn: findId,
+    name: 'find-project-id.js',
+    requiresTrust: true,
+    fn: trustedFindId,
+    world: 'ISOLATED',
 });
-function findId() {
+function trustedFindId() {
   window.alert('TEST');
   return document.getElementById('project_id').value;
 }
