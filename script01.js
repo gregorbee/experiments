@@ -1,12 +1,9 @@
 'use strict';
-
 export const builtinScriptlets = [];
-
 /*******************************************************************************
     Helper functions
     These are meant to be used as dependencies to injectable scriptlets.
 *******************************************************************************/
-
 builtinScriptlets.push({
     name: 'safe-self.fn',
     fn: safeSelf,
@@ -107,8 +104,22 @@ function safeSelf() {
     scriptletGlobals.set('safeSelf', safe);
     return safe;
 }
-
 /******************************************************************************/
+builtinScriptlets.push({
+    name: 'run-at-html-element.fn',
+    fn: runAtHtmlElementFn,
+});
+function runAtHtmlElementFn(fn) {
+    if ( document.documentElement ) {
+        fn();
+        return;
+    }
+    const observer = new MutationObserver(( ) => {
+        observer.disconnect();
+        fn();
+    });
+    observer.observe(document, { childList: true });
+}
 /******************************************************************************/
 /******************************************************************************
  * trusted-click-element.js → trusted-test.js
