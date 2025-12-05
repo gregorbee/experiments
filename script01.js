@@ -4,14 +4,14 @@
 /// world ISOLATED
 // example.com##+js(tmf)
 function testMyFunction() {
-	const tmf = ( ) => {
-		try {
+	//const tmf = ( ) => {
+		//try {
 			window.alert('TEST');
     		//return document.getElementById('project_id').value;
-			}
-		} catch { }
-	};
-	runAt(( ) => { tmf(); }, 'interactive');
+			//}
+		//} catch { }
+	//};
+	//runAt(( ) => { tmf(); }, 'interactive');
 }
 /******************************************************************************/
 // window.alert('TEST');
