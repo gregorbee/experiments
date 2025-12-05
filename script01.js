@@ -1,11 +1,16 @@
+'use strict';
 /// test-my-function.js
 /// alias tmf.js
 /// world ISOLATED
 // example.com##+js(tmf)
 function testMyFunction() {
-	if ( selector === '' || element === '') { return; }
-    window.alert('TEST');
-    //return document.getElementById('project_id').value;
+	const tmf = ( ) => {
+		try {
+			window.alert('TEST');
+    		//return document.getElementById('project_id').value;
+			}
+		} catch { }
+	};
 	runAt(( ) => { tmf(); }, 'interactive');
 }
 /******************************************************************************/
